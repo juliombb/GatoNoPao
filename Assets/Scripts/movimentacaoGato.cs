@@ -5,7 +5,7 @@ using UnityEngine;
 public class movimentacaoGato : MonoBehaviour {
 	public GameObject tiro;
 	GameObject tiroAtual;
-	private float vida = 400;
+	private float vida = 100;
     public float variacaoMovimentacaoX, variacaoMovimentacaoY;
     public float velocidade;
 	private int intervalo = 0;
@@ -49,7 +49,7 @@ public class movimentacaoGato : MonoBehaviour {
 			}
 
 	void OnTriggerEnter2D (Collider2D col){
-		if (col.gameObject.name.Equals("projetilPlayer(Clone)")||(col.gameObject.name.Equals("projetilPlayer"))) {
+		if (col.gameObject.tag.Equals("ataquePlayer")) {
 			vida -= 10;
 			Destroy (col.gameObject);
 		}	
