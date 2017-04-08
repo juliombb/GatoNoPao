@@ -4,12 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
-	int vida = 3;
+	static int vida = 3;
 	float speed = 10.0f;
 	const float cadencia = 0.5f;
 	float intervalo = 0.0f;
 	public Image vida1, vida2, vida3;
 	public GameObject tiro;
+	public GameObject novelo;
 	GameObject tiroAtual;
 
 	// Use this for initialization
@@ -24,7 +25,7 @@ public class Player : MonoBehaviour {
 			tiroAtual.transform.position = this.transform.position + new Vector3(1.0f, 0.0f, 0.0f);
 			intervalo = 0;
 		}
-		if (vida == 0) {
+		if (vida <= 0) {
 			Destroy (this.gameObject);
 			//gameover
 		}
@@ -32,12 +33,12 @@ public class Player : MonoBehaviour {
 	}
 	void OnTriggerEnter2D (Collider2D col){
 		if (col.gameObject.tag.Equals ("Obstacle")) {
+			Debug.Log ("passou");
 			vida--;
 			vidaManager ();
-			col.gameObject.transform.position = new Vector3 (12.0f, Random.Range (-5.0f, 5.0f), 0.0f);
+			print (vida);
 		}
-	}
-	void OnTriggerEnter (Collider col){ // levou um tiro
+		// levou um tiro
 		if (col.gameObject.tag.Equals("EnemyProjectile")) {
 			vida--;
 			vidaManager ();
