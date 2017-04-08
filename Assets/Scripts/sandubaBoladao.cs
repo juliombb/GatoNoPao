@@ -36,7 +36,7 @@ public class sandubaBoladao: MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D (Collider2D col){
-		if (col.gameObject.name.Equals("projetilPlayer(Clone)") ||(col.gameObject.name.Equals("projetilPlayer"))) {
+		if (col.gameObject.tag.Equals("ataquePlayer")) {
 			vida -= 10;
 			Destroy(col.gameObject);
 		}	

@@ -38,10 +38,7 @@ public class Player : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D col)
     {
         print("oi");
-		if (col.gameObject.name.Equals("projetil 1(Clone)")||(col.gameObject.name.Equals("projetil 1")) || 
-            (col.gameObject.name.Equals("novelo(Clone)")) || (col.gameObject.name.Equals("novelo")) || 
-            (col.gameObject.name.Equals("meteoro_estrela")) || (col.gameObject.name.Equals("meteoro_estrela(Clone)")) || 
-            (col.gameObject.name.Equals("meteoro_giratorio(Clone)")) || (col.gameObject.name.Equals("meteoro_giratorio"))){
+		if (col.gameObject.tag.Equals("ataqueInimigo")){
             vida -= 1;
 
 			Destroy (col.gameObject);
