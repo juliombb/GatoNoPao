@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour {
 
-	float speed = 14.0f;
+	public float speed = 14.0f;
+	public float acceleration = 2.0f;
 	// Use this for initialization
 	void Start () {
 	}
@@ -18,7 +19,7 @@ public class Obstacle : MonoBehaviour {
 			posX = 12.0f;
 			posY = Random.Range (-5.0f, 5.0f);
 			this.transform.position = new Vector3 (posX, posY, 0);
-			speed *= 1.2f;
+			speed += acceleration * Time.deltaTime;
 		}
 	}
 }
