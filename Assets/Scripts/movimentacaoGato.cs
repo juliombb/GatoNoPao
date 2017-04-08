@@ -5,7 +5,7 @@ using UnityEngine;
 public class movimentacaoGato : MonoBehaviour {
 	public GameObject tiro;
 	GameObject tiroAtual;
-	private float vida = 100;
+	private float vida = 300;
     public float variacaoMovimentacaoX, variacaoMovimentacaoY;
     public float velocidade;
 	private int intervalo = 0;
