@@ -24,6 +24,7 @@ public class Obstacle : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D (Collider2D col){
-		this.transform.position = new Vector3 (12.0f, Random.Range (-5.0f, 5.0f), -2.0f);
+		if(col.gameObject.tag.Equals ("Player"))
+			this.transform.position = new Vector3 (12.0f, Random.Range (-5.0f, 5.0f), -2.0f);
 	}
 }
