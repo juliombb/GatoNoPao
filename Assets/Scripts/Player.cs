@@ -4,7 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
+<<<<<<< HEAD
 	int vida = 3;
+=======
+	float vida = 30;
+>>>>>>> 47dfcfcaf57f269628b2c6d3d7043d20840e2716
 	float speed = 10.0f;
 	const float cadencia = 0.5f;
 	float intervalo = 0.0f;
@@ -31,6 +35,7 @@ public class Player : MonoBehaviour {
 		}
 		this.transform.position += new Vector3 (Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical"), 0) * speed * Time.deltaTime;
 	}
+
 	void OnTriggerEnter2D (Collider2D col){
 		if (col.gameObject.tag.Equals ("Obstacle")) {
 			vida -= 1;
@@ -38,7 +43,6 @@ public class Player : MonoBehaviour {
 		}
 		if (col.gameObject.tag.Equals("projetilBoss")) {
 			vida -= 2;
-			lblScore.text =  "" + vida;
 			Destroy (col.gameObject);
 		}	
 	}

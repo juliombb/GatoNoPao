@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class atacar : MonoBehaviour {
-    public GameObject balaPrefab;
+    public GameObject balaFuracaoPrefabLaranja;
+    public GameObject balaFuracaoPrefabAzul;
     public int contadorAtaqueFuracao = 10;
 	// Use this for initialization
 	void Start () {
 
-        InvokeRepeating("ataqueFuracao", 2.0f, 0.3f);
+        InvokeRepeating("ataqueFuracao", 10.0f, 1);
+        InvokeRepeating("resetFuracao", 25, 15);
     }
 	
 	// Update is called once per frame
@@ -16,13 +18,30 @@ public class atacar : MonoBehaviour {
 		
 	}
 
+    bool laranja = true;
     private void ataqueFuracao()
     {
         if (--contadorAtaqueFuracao > 0)
         {
-            GameObject bala = (GameObject)Instantiate(balaPrefab);
-            bala.transform.parent = transform;
-            bala.transform.position = new Vector3(0, 0, 0);
+            GameObject bala;
+            if (laranja)
+            {
+                bala = (GameObject)Instantiate(balaFuracaoPrefabLaranja);
+                laranja = false;
+            }
+            else
+            {   
+                bala = (GameObject)Instantiate(balaFuracaoPrefabAzul);
+                laranja = true;
+            }
+            bala.transform.SetParent(transform);
+            bala.transform.localPosition = new Vector3(0,0, -1);
         }
     }
+
+    private void resetFuracao()
+    {
+        contadorAtaqueFuracao = 10;
+    }
+
 }
