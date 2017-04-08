@@ -37,11 +37,15 @@ public class Player : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        print("oi");
+        
 		if (col.gameObject.tag.Equals("ataqueInimigo")){
             vida -= 1;
 
 			Destroy (col.gameObject);
-		}	
+
+            GameObject camera = GameObject.Find("Main Camera");
+            ((mecherCamera)camera.GetComponent(typeof(mecherCamera))).mecherACamera();
+
+        }	
 	}
 }
