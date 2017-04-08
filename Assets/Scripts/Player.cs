@@ -22,13 +22,17 @@ public class Player : MonoBehaviour {
 			tiroAtual.transform.position = this.transform.position + new Vector3(1.0f, 0.0f, 0.0f);
 			intervalo = 0;
 		}
-		if (vida == 0)
+		if (vida <= 0)
 			Destroy (this.gameObject);
 		this.transform.position += new Vector3 (Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical"), 0) * speed * Time.deltaTime;
 	}
 
-	void OnTriggerEnter (Collider col){
-		if (col.gameObject.name.Equals("projetil 1(Clone)")||(col.gameObject.name.Equals("projetil 1")) || (col.gameObject.name.Equals("novelo(Clone)")) || (col.gameObject.name.Equals("novelo")) || (col.gameObject.name.Equals("novelo")) || (col.gameObject.name.Equals("meteoro_estrela(Copia)")) || (col.gameObject.name.Equals("meteoro_estrela(Copia)")) || (col.gameObject.name.Equals("meteoro_giratorio(Copia)")) || (col.gameObject.name.Equals("meteoro_giratorio"))){
+	void OnCollisionEnter2D(Collision2D col){
+        print("oi");
+		if (col.gameObject.name.Equals("projetil 1(Clone)")||(col.gameObject.name.Equals("projetil 1")) || 
+            (col.gameObject.name.Equals("novelo(Clone)")) || (col.gameObject.name.Equals("novelo")) || 
+            (col.gameObject.name.Equals("meteoro_estrela")) || (col.gameObject.name.Equals("meteoro_estrela(Clone)")) || 
+            (col.gameObject.name.Equals("meteoro_giratorio(Clone)")) || (col.gameObject.name.Equals("meteoro_giratorio"))){
             vida -= 10;
 			Destroy (col.gameObject);
 		}	
