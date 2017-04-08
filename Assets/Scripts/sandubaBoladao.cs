@@ -35,10 +35,10 @@ public class sandubaBoladao: MonoBehaviour {
 			//Camera.main.WorldToScreenPoint(this.transform.position);
 	}
 
-	void OnTriggerEnter (Collider col){
-		if (col.gameObject.name.Equals("projetil Player(Clone)")||(col.gameObject.name.Equals("projetil Player"))) {
+	void OnTriggerEnter2D (Collider2D col){
+		if (col.gameObject.name.Equals("projetilPlayer(Clone)") ||(col.gameObject.name.Equals("projetilPlayer"))) {
 			vida -= 10;
-			Destroy (col.gameObject);
+			Destroy(col.gameObject);
 		}	
 	}
 }

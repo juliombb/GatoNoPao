@@ -37,7 +37,7 @@ public class movimentacaoGato : MonoBehaviour {
 
         transform.position = Vector3.MoveTowards(transform.position, new Vector3(posicaoDestinoX, posicaoDestinoY, transform.position.z), quantidadeMovimentacao);
 
-        if (posicaoDestinoX == transform.position.x && posicaoDestinoY == transform.position.y)
+        if (posicaoDestinoX == transform.position.x || posicaoDestinoY == transform.position.y)
             realizouMovimentacao = true;
 		if (vida < 0)
 			Destroy (this.gameObject);
@@ -48,8 +48,8 @@ public class movimentacaoGato : MonoBehaviour {
 		}
 			}
 
-	void OnTriggerEnter (Collider col){
-		if (col.gameObject.name.Equals("projetil(Clone)")||(col.gameObject.name.Equals("projetil"))) {
+	void OnTriggerEnter2D (Collider2D col){
+		if (col.gameObject.name.Equals("projetilPlayer(Clone)")||(col.gameObject.name.Equals("projetilPlayer"))) {
 			vida -= 10;
 			Destroy (col.gameObject);
 		}	

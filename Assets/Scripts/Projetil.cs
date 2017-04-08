@@ -8,8 +8,11 @@ public class Projetil : MonoBehaviour {
 	public float speedY;
 	// Use this for initialization
 	void Start () {
-		speedY = Random.Range (-1f, 1f);
-		speedX = Random.Range (15.0f, 16.0f);
+        if(speedY==0)
+		    speedY = Random.Range (-5f, 5f);
+
+        if(speedX==0)
+            speedX = Random.Range (15.0f, 16.0f);
 	}
 
 	// Update is called once per frame
@@ -17,7 +20,7 @@ public class Projetil : MonoBehaviour {
 		this.transform.position += new Vector3(speedX, speedY, 0.0f) * Time.deltaTime;
 	}
 
-	void OnBecameInvisible () {
+        void OnBecameInvisible () {
 		Destroy(gameObject);
 	}
 }

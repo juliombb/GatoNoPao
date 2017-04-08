@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
-	float vida = 30;
+	float vida = 3;
 
 	float speed = 10.0f;
 	const float cadencia = 0.5f;
@@ -35,13 +35,14 @@ public class Player : MonoBehaviour {
 		this.transform.position += new Vector3 (Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical"), 0) * speed * Time.deltaTime;
 	}
 
-	void OnCollisionEnter2D(Collision2D col){
+    void OnTriggerEnter2D(Collider2D col)
+    {
         print("oi");
 		if (col.gameObject.name.Equals("projetil 1(Clone)")||(col.gameObject.name.Equals("projetil 1")) || 
             (col.gameObject.name.Equals("novelo(Clone)")) || (col.gameObject.name.Equals("novelo")) || 
             (col.gameObject.name.Equals("meteoro_estrela")) || (col.gameObject.name.Equals("meteoro_estrela(Clone)")) || 
             (col.gameObject.name.Equals("meteoro_giratorio(Clone)")) || (col.gameObject.name.Equals("meteoro_giratorio"))){
-            vida -= 10;
+            vida -= 1;
 
 			Destroy (col.gameObject);
 		}	
