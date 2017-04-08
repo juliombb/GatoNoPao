@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class Projetil : MonoBehaviour {
 
-	float speedX = 14.0f;
-	float speedY;
+	public float speedX;
+	public float speedY;
 	// Use this for initialization
 	void Start () {
-		speedY = Random.Range(-0.6f, 0.6f);
+		if(speedY == 0)
+			speedY = Random.Range (-0.6f, 0.6f);
+		if (speedX == 0) {
+			speedX = Random.Range (-0.6f, 0.6f);
+		}
 	}
 
 	// Update is called once per frame
