@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class atacar : MonoBehaviour {
-    public GameObject balaFuracaoPrefab;
+    public GameObject balaFuracaoPrefabLaranja;
+    public GameObject balaFuracaoPrefabAzul;
     public int contadorAtaqueFuracao = 10;
 	// Use this for initialization
 	void Start () {
@@ -17,11 +18,22 @@ public class atacar : MonoBehaviour {
 		
 	}
 
+    bool laranja = true;
     private void ataqueFuracao()
     {
         if (--contadorAtaqueFuracao > 0)
         {
-            GameObject bala = (GameObject)Instantiate(balaFuracaoPrefab);
+            GameObject bala;
+            if (laranja)
+            {
+                bala = (GameObject)Instantiate(balaFuracaoPrefabLaranja);
+                laranja = false;
+            }
+            else
+            {   
+                bala = (GameObject)Instantiate(balaFuracaoPrefabAzul);
+                laranja = true;
+            }
             bala.transform.SetParent(transform);
             bala.transform.localPosition = new Vector3(0,0, -1);
         }
