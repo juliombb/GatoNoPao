@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+sing UnityEngine;
 using System.Collections;
 
 public class sandubaBoladao: MonoBehaviour {
