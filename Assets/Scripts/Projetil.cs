@@ -8,11 +8,8 @@ public class Projetil : MonoBehaviour {
 	public float speedY;
 	// Use this for initialization
 	void Start () {
-		if(speedY == 0)
-			speedY = Random.Range (-5f, 5f);
-		if (speedX == 0) {
-			speedX = Random.Range (-0.6f, 0.6f);
-		}
+		speedY = Random.Range (-1f, 1f);
+		speedX = Random.Range (15.0f, 16.0f);
 	}
 
 	// Update is called once per frame
