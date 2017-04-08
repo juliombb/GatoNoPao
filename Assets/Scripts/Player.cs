@@ -8,13 +8,12 @@ public class Player : MonoBehaviour {
 	float speed = 10.0f;
 	const float cadencia = 0.5f;
 	float intervalo = 0.0f;
+	public Image vida1, vida2, vida3;
 	public GameObject tiro;
-	public Text lblScore;
 	GameObject tiroAtual;
 
 	// Use this for initialization
 	void Start () {
-		lblScore.text = ""+ vida;
 	}
 	
 	// Update is called once per frame
@@ -33,14 +32,35 @@ public class Player : MonoBehaviour {
 	}
 	void OnTriggerEnter2D (Collider2D col){
 		if (col.gameObject.tag.Equals ("Obstacle")) {
-			vida -= 1;
+			vida--;
+			vidaManager ();
 			col.gameObject.transform.position = new Vector3 (12.0f, Random.Range (-5.0f, 5.0f), 0.0f);
 		}
+	}
 	void OnTriggerEnter (Collider col){ // levou um tiro
-		if (col.gameObject.name.Equals("projetil Gato(Clone)")||(col.gameObject.name.Equals("projetil Gato"))) {
-			vida -= 10;
-			lblScore.text =  "" + vida;
+		if (col.gameObject.tag.Equals("EnemyProjectile")) {
+			vida--;
+			vidaManager ();
 			Destroy (col.gameObject);
 		}	
+	}
+
+	void vidaManager(){
+		Color cor = new Color32 (255, 255, 255, 0);
+		switch(vida){
+		case 2:
+			vida3.color = cor;
+			break;
+		case 1:
+			vida2.color = cor;
+			vida3.color = cor;
+			break;
+		case 0:
+			vida1.color = cor;
+			vida2.color = cor;
+			vida3.color = cor;
+			break;
+		}
+	
 	}
 }
