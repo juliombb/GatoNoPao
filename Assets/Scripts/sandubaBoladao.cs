@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class sandubaBoladao: MonoBehaviour {
 	public GameObject tiro;
 	GameObject tiroAtual;
+	Text lblVidaSanduba;
 	private float vida = 100;
 	private Transform target;
 	private float raio = 7.0f;
@@ -28,10 +30,13 @@ public class sandubaBoladao: MonoBehaviour {
 			tiroAtual.transform.position = this.transform.position - new Vector3(1.0f, 0.0f, 0.0f);
 			intervalo = 0;
 		}
+			// texto com a vida do sanduba acompanha o sanduba
+		lblVidaSanduba.transform.position = new Vector3(8.0f,3.0f,0);
+			//Camera.main.WorldToScreenPoint(this.transform.position);
 	}
 
 	void OnTriggerEnter (Collider col){
-		if (col.gameObject.name.Equals("projetil(Clone)")||(col.gameObject.name.Equals("projetil"))) {
+		if (col.gameObject.name.Equals("projetil Player(Clone)")||(col.gameObject.name.Equals("projetil Player"))) {
 			vida -= 10;
 			Destroy (col.gameObject);
 		}	
