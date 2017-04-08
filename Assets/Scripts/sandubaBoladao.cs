@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+sing UnityEngine;
 using System.Collections;
 
 public class sandubaBoladao: MonoBehaviour {
@@ -34,8 +34,6 @@ public class sandubaBoladao: MonoBehaviour {
 		if (col.gameObject.name.Equals("projetil(Clone)")||(col.gameObject.name.Equals("projetil"))) {
 			vida -= 10;
 			Destroy (col.gameObject);
-			Vector3 pos = new Vector3 (0f, 15.0f, 0f);
-			this.transform.position = new Vector3 (-11.0f, 0f, 0f);
 		}	
 	}
 }
