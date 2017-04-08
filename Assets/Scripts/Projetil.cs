@@ -8,17 +8,13 @@ public class Projetil : MonoBehaviour {
 	public float speedY;
 	// Use this for initialization
 	void Start () {
-		if(speedY == 0)
-			speedY = Random.Range (-0.6f, 0.6f);
-		if (speedX == 0) {
-			speedX = Random.Range (-0.6f, 0.6f);
-		}
+		speedY = Random.Range (-1f, 1f);
+		speedX = Random.Range (15.0f, 16.0f);
 	}
 
 	// Update is called once per frame
 	void Update () {
 		this.transform.position += new Vector3(speedX, speedY, 0.0f) * Time.deltaTime;
-		Debug.Log(Screen.width);
 	}
 
 	void OnBecameInvisible () {

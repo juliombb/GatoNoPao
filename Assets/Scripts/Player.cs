@@ -22,10 +22,10 @@ public class Player : MonoBehaviour {
 		intervalo += Time.deltaTime;
 		if ((Input.GetButton("Fire1")||Input.GetButton("Jump"))  && intervalo >= cadencia) {
 			tiroAtual = Instantiate(tiro);
-			tiroAtual.transform.position = this.transform.position + new Vector3(1.0f, 0.0f, 0.0f);
+			tiroAtual.transform.position = this.transform.position + new Vector3(1.0f, 0.5f, 0.0f);
 			intervalo = 0;
 		}
-		if (vida == 0) {
+		if (vida <= 0) {
 			Destroy (this.gameObject);
 			//gameover
 		}
@@ -36,9 +36,8 @@ public class Player : MonoBehaviour {
 			vida -= 1;
 			col.gameObject.transform.position = new Vector3 (12.0f, Random.Range (-5.0f, 5.0f), 0.0f);
 		}
-	void OnTriggerEnter (Collider col){ // levou um tiro
-		if (col.gameObject.name.Equals("projetil Gato(Clone)")||(col.gameObject.name.Equals("projetil Gato"))) {
-			vida -= 10;
+		if (col.gameObject.tag.Equals("projetilBoss")) {
+			vida -= 2;
 			lblScore.text =  "" + vida;
 			Destroy (col.gameObject);
 		}	
