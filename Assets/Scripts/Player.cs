@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
-	float vida = 100;
+	float vida = 30;
 	float speed = 10.0f;
 	const float cadencia = 0.5f;
 	float intervalo = 0.0f;
