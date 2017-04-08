@@ -28,8 +28,8 @@ public class Player : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider col){
-		if (col.gameObject.name.Equals("projetil 1(Clone)")||(col.gameObject.name.Equals("projetil 1"))) {
-			vida -= 10;
+		if (col.gameObject.name.Equals("projetil 1(Clone)")||(col.gameObject.name.Equals("projetil 1")) || (col.gameObject.name.Equals("novelo(Clone)")) || (col.gameObject.name.Equals("novelo")) || (col.gameObject.name.Equals("novelo")) || (col.gameObject.name.Equals("meteoro_estrela(Copia)")) || (col.gameObject.name.Equals("meteoro_estrela(Copia)")) || (col.gameObject.name.Equals("meteoro_giratorio(Copia)")) || (col.gameObject.name.Equals("meteoro_giratorio"))){
+            vida -= 10;
 			Destroy (col.gameObject);
 		}	
 	}
